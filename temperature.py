@@ -2,7 +2,7 @@
 import datetime
 import os.path
 
-from subprocess import call
+import subprocess
 
 from yoctopuce.yocto_api import *
 from yoctopuce.yocto_temperature import *
