@@ -10,9 +10,6 @@ from yoctopuce.yocto_humidity import *
 from yoctopuce.yocto_pressure import *
 
 
-log = "/Users/tom/Desktop/temp-{:%Y%m%d}.log".format(timestamp)
-rrd = "yocto_meto.rrd"
-
 errmsg = YRefParam()
 YAPI.RegisterHub("usb", errmsg)
 
@@ -24,6 +21,9 @@ pressure = YPressure.FirstPressure()
 # print "{}°C".format(temperature.get_currentValue())
 # print "{} %RH".format(humidity.get_currentValue())
 # print "{} mbar".format(pressure.get_currentValue())
+
+log = "/Users/tom/Desktop/temp-{:%Y%m%d}.log".format(timestamp)
+rrd = "yocto_meto.rrd"
 
 
 def get_currentValue(sensor):
