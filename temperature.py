@@ -49,7 +49,7 @@ if not os.path.isfile(rrd):
         shell=True
     )
 
-data = "{:%s}:{}:{}:{}\n".format(
+data = "{:%s}:{}:{}:{}".format(
     timestamp,
     get_currentValue(temperature),
     get_currentValue(humidity),
