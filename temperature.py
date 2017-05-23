@@ -36,16 +36,16 @@ def get_currentValue(sensor):
 if not os.path.isfile(rrd):
     step = 60
 
-    temperature = "DS:temperature:GAUGE:120:0:50"
-    humidity = "DS:humidity:GAUGE:120:0:100"
-    pressure = "DS:pressure:GAUGE:120:200:1100"
+    ds_temperature = "DS:temperature:GAUGE:120:0:50"
+    ds_humidity = "DS:humidity:GAUGE:120:0:100"
+    ds_pressure = "DS:pressure:GAUGE:120:200:1100"
 
-    day = "RRA:MAX:0.5:1:1440"
+    rra_day = "RRA:MAX:0.5:1:1440"
 
     cmd = "rrdtool create {} --step {} {} {} {} {}"
 
     subprocess.call(
-        cmd.format(rrd, step, temperature, humidity, pressure, day),
+        cmd.format(rrd, step, ds_temperature, ds_humidity, ds_pressure, rra_day),
         shell=True
     )
 
