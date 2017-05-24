@@ -9,6 +9,7 @@ from yoctopuce.yocto_temperature import *
 from yoctopuce.yocto_humidity import *
 from yoctopuce.yocto_pressure import *
 
+rrdtool = "/usr/local/bin/rrdtool"
 
 errmsg = YRefParam()
 YAPI.RegisterHub("usb", errmsg)
@@ -44,10 +45,14 @@ if not os.path.isfile(rrd):
 
     rra_day = "RRA:MAX:0.5:1:1440"
 
-    cmd = "rrdtool create {} --step {} {} {} {} {}"
+    cmd = "{} create {} --step {} {} {} {} {}"
 
     subprocess.call(
-        cmd.format(rrd, step, ds_temperature, ds_humidity, ds_pressure, rra_day),
+        cmd.format(
+            rrdtool, rrd, step,
+            ds_temperature, ds_humidity, ds_pressure,
+            rra_day
+        ),
         shell=True
     )
 
