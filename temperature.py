@@ -66,5 +66,5 @@ subprocess.call(
 
 with open(log, 'a') as log:
     log.write(
-        "{}/n".format(data.replace(':', ','))
+        "{}\n{}".format(data.replace(':', ','), rrd)
     )
