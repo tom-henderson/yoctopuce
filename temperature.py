@@ -24,7 +24,7 @@ pressure = YPressure.FirstPressure()
 
 path = os.path.dirname(os.path.realpath(__file__))
 
-log = "{}/temp-{:%Y%m%d}.log".format(path, timestamp)
+log = "{}/temp-{:%Y%m%d}.csv".format(path, timestamp)
 rrd = "{}/yocto_meto.rrd".format(path)
 
 
