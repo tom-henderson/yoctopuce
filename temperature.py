@@ -22,8 +22,10 @@ pressure = YPressure.FirstPressure()
 # print "{} %RH".format(humidity.get_currentValue())
 # print "{} mbar".format(pressure.get_currentValue())
 
-log = "/Users/tom/Desktop/temp-{:%Y%m%d}.log".format(timestamp)
-rrd = "yocto_meto.rrd"
+path = os.path.dirname(os.path.realpath(__file__))
+
+log = "{}/temp-{:%Y%m%d}.log".format(path, timestamp)
+rrd = "{}/yocto_meto.rrd".format(path)
 
 
 def get_currentValue(sensor):
@@ -63,4 +65,6 @@ subprocess.call(
 )
 
 with open(log, 'a') as log:
-    log.write(data.replace(':', ','))
+    log.write(
+        "{}/n".format(data.replace(':', ','))
+    )
