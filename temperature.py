@@ -43,7 +43,7 @@ if not os.path.isfile(rrd):
     ds_humidity = "DS:humidity:GAUGE:120:0:100"
     ds_pressure = "DS:pressure:GAUGE:120:200:1100"
 
-    rra_day = "RRA:MAX:0.5:1:1440"
+    rra_day = "RRA:MAX:0.5:1:10080"
 
     cmd = "{} create {} --step {} {} {} {} {}"
 
