@@ -63,9 +63,9 @@ data = "{:%s}:{}:{}:{}".format(
     get_currentValue(pressure)
 )
 
-cmd = "rrdtool update {} --template temperature:humidity:pressure {}"
+cmd = "{} update {} --template temperature:humidity:pressure {}"
 subprocess.call(
-    cmd.format(rrd, data),
+    cmd.format(rrdtool, rrd, data),
     shell=True
 )
 
